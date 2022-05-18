@@ -1,21 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
-import WordInput from "./WordInput";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './Components/Header'
-import Figure from './Components/Figure'
+import Hangman from './Hangman.js'
+import store from "./Redux/store";
+import { Provider } from "react-redux";
+ 
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<>
-	<Header />
-	<Figure />
-	<WordInput />	
-	</>
+	<React.StrictMode>
+		<Provider store = {store}>
+		<Hangman />		
+		</Provider>				
+	</React.StrictMode>
 	
 );
 

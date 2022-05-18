@@ -4,8 +4,7 @@ import Header from './Components/Header'
 import Figure from './Components/Figure'
 function App() {
 	return (
-	<>
-	<Header /> 
+	<>	
 	</>
 	);
 }
