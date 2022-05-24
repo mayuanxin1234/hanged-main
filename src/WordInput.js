@@ -21,14 +21,15 @@ const WordInput = () => {
 	const formik = useFormik({
 		initialValues: {word: ""},
 		onSubmit: (values) => {
-			console.log(values.word);			
-			<Hangman props = {values.word} />
-			
+			console.log(values.word);
+			var word = values.word;			
+			<Hangman data = {word} />			
 		},
 		validationSchema: schema
 	});
 
 	return (
+		
 		<Form noValidate onSubmit={formik.handleSubmit} id="mainForm">
 			<Form.Group className="mb-3" controlId="TaskInput">
 				<Form.Label>Letter Input</Form.Label>
@@ -47,7 +48,9 @@ const WordInput = () => {
 			</Form.Group>
 
 			<Button type="submit">Submit</Button>
+			
 		</Form>
+		
 	);
 };
 

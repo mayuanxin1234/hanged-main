@@ -7,7 +7,10 @@ import WrongLetters from './Components/WrongLetters';
 import { useDispatch, useSelector } from 'react-redux';
 import {decrement, increment} from "./Redux/counter"
 import {useLocation} from 'react-router-dom';
+import { render } from '@testing-library/react';
 const Hangman = (props) => {
+
+
     const { count } = useSelector((state) => state.counter)
     const dispatch = useDispatch()
     const wordList = ['singapore', 'tiktok', 'camp', 'youth']
@@ -15,12 +18,13 @@ const Hangman = (props) => {
     const [correctLetters, setCorrectLetters] = useState([])
     const [playable, setPlayable] = useState(true)
     const [wrongLetters, setWrongLetters] = useState([])
-
     useEffect(() => {
       
       const handleFormSubmit = () => {
-       const letter = props.props;
-          console.log(props.word)
+        console.log(props.data);
+       const letter = props.data;  
+           
+          
           if (selectedWord.includes(letter)) {
             if (!correctLetters.includes(letter)) {
               setCorrectLetters(currentLetters => [...currentLetters, letter]);
@@ -35,10 +39,10 @@ const Hangman = (props) => {
         const button = document.querySelector('button')
        
       button.addEventListener('click', handleFormSubmit);       
-  
+     
       return () => button.removeEventListener('click', handleFormSubmit);
       }, [correctLetters, wrongLetters]);
-      
+    
   return (
     
     <>
