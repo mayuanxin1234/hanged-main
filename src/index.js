@@ -6,17 +6,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Hangman from './Hangman.js'
 import store from "./Redux/store";
 import { Provider } from "react-redux";
- 
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import App from "./App";
+import WordInput from "./WordInput";
 
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<React.StrictMode>
-		<Provider store = {store}>
-		<Hangman />		
-		</Provider>				
-	</React.StrictMode>
+<div>
+<Provider store = {store}>
+		<Hangman />	
+			
+		</Provider>	
+	</div>
 	
 );
 

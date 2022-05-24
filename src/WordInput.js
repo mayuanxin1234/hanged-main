@@ -1,8 +1,8 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
+import {useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-
+import Hangman from "./Hangman";
 import {useFormik, useField, useFormikContext} from "formik";
 
 import * as Yup from "yup";
@@ -14,16 +14,17 @@ const schema = Yup.object({
 		.max(1)
 });
 
-const print = word => {
-	console.log(word);
-};
 
-const WordInput = () => {
+const WordInput = () => {	
+	
+
 	const formik = useFormik({
 		initialValues: {word: ""},
-		onSubmit: values => {
+		onSubmit: (values) => {
+			console.log(values.word);			
+			<Hangman props = {values.word} />
 			
-		  },
+		},
 		validationSchema: schema
 	});
 
