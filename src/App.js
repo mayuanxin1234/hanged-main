@@ -41,7 +41,7 @@ function App() {
   return (    
     <>
   <Header />
-        <Figure />
+        <Figure wrongLetters={wrongLetters}/>
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
   </>

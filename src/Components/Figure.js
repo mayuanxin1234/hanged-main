@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react'
 
-const Figure = () => {
+const Figure = ({wrongLetters}) => {
 
-    const errors = 0;
+    const errors = wrongLetters.length;
     const canvasRef = useRef(null)
 
-    const draw = ctx => {
+    var draw = ctx => {
         ctx.fillStyle = '#000000'
         //Rod
         ctx.beginPath()
@@ -22,12 +22,24 @@ const Figure = () => {
         {errors > 0 && ctx.moveTo(150,20);
         ctx.arc(150, 50, 30,0,2 * Math.PI)}
         //Body
+        {errors > 1 && ctx.moveTo(150,20);
+          ctx.arc(150, 50, 30,0,2 * Math.PI)}
+        //Arms
+        {errors > 2 && ctx.moveTo(150,20);
+          ctx.arc(150, 50, 30,0,2 * Math.PI)}
+          {errors > 3 && ctx.moveTo(150,20);
+            ctx.arc(150, 50, 30,0,2 * Math.PI)}
+          //Legs
+          {errors > 4 && ctx.moveTo(150,20);
+            ctx.arc(150, 50, 30,0,2 * Math.PI)}
+            {errors > 5 && ctx.moveTo(150,20);
+              ctx.arc(150, 50, 30,0,2 * Math.PI)}
         
       }
 
     useEffect(() => {
-    const canvas = canvasRef.current
-    const context = canvas.getContext('2d')
+    var canvas = canvasRef.current
+    var context = canvas.getContext('2d')
     draw(context)},[draw])
   return (    
 
