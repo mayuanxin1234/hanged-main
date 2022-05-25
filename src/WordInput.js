@@ -1,9 +1,7 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import {useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import {useFormik, useField, useFormikContext} from "formik";
-import App from "./App";
+import {useFormik} from "formik";
 import * as Yup from "yup";
 
 const schema = Yup.object({

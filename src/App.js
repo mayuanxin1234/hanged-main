@@ -4,7 +4,6 @@ import Figure from './Components/Figure'
 import React, { useState, useEffect } from 'react'
 import Word from './Components/Word'
 import WrongLetters from './Components/WrongLetters';
-import WordInput from './WordInput'
 const wordList = ['singapore', 'tiktok', 'camp', 'youth']
 let selectedWord = wordList[Math.floor(Math.random() * wordList.length)]
 function App() {
