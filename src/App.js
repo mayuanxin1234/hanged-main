@@ -18,7 +18,7 @@ function App() {
       const handleFormSubmit = (event) => {
        const letter = event.key;
        console.log(letter);            
-          
+          if (event.keyCode >= 65 && event.keyCode <= 90) {
           if (selectedWord.includes(letter)) {
             if (!correctLetters.includes(letter)) {
               setCorrectLetters(currentLetters => [...currentLetters, letter]);
@@ -29,12 +29,13 @@ function App() {
             } 
           }
         }
+	}
         
-        const button = document.querySelector('button')
+        //const button = document.querySelector('button')
        
-      button.addEventListener('click', handleFormSubmit); 
+      window.addEventListener('keydown', handleFormSubmit); 
      
-      return () => button.removeEventListener('click', handleFormSubmit);
+      return () => window.removeEventListener('keydown', handleFormSubmit);
       }, [correctLetters, wrongLetters, playable]);
     
   return (    
@@ -43,7 +44,6 @@ function App() {
         <Figure />
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
-		<WordInput/>
   </>
   )
 }
