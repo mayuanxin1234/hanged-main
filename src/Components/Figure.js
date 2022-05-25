@@ -1,10 +1,8 @@
 import React, { useRef, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
 
-const Figure = props => {
-  const { count } = useSelector((state) => state.counter)
-  
-    const errors = {count}
+const Figure = () => {
+
+    const errors = 0;
     const canvasRef = useRef(null)
 
     const draw = ctx => {
@@ -33,7 +31,7 @@ const Figure = props => {
     draw(context)},[draw])
   return (    
 
-    <canvas ref = {canvasRef} {...props}/>       
+    <canvas ref = {canvasRef} />   
     
   )
 }

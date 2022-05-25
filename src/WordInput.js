@@ -2,9 +2,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import Hangman from "./Hangman";
 import {useFormik, useField, useFormikContext} from "formik";
-
+import App from "./App";
 import * as Yup from "yup";
 
 const schema = Yup.object({
@@ -14,16 +13,13 @@ const schema = Yup.object({
 		.max(1)
 });
 
-
 const WordInput = () => {	
 	
 
 	const formik = useFormik({
 		initialValues: {word: ""},
 		onSubmit: (values) => {
-			console.log(values.word);
-			var word = values.word;			
-			<Hangman data = {word} />			
+			console.log(values.word);				
 		},
 		validationSchema: schema
 	});
@@ -47,7 +43,7 @@ const WordInput = () => {
 				</Form.Control.Feedback>
 			</Form.Group>
 
-			<Button type="submit">Submit</Button>
+			<Button type="button">Submit</Button>
 			
 		</Form>
 		
