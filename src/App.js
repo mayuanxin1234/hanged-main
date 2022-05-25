@@ -16,8 +16,15 @@ function App() {
     useEffect(() => {
       
       const handleFormSubmit = (event) => {
-       const letter = event.key;         
-          if (event.keyCode >= 65 && event.keyCode <= 90) {
+       const letter = event.key;
+	   if (wrongLetters.length === selectedWord.length) {
+		   setPlayable(value => [false]);
+		   alert("Game Over! Try Again.");
+	   }         
+	   if (correctLetters.length === selectedWord.length) {
+		alert("You Won!");
+	   }
+          if (playable && event.keyCode >= 65 && event.keyCode <= 90) {
           if (selectedWord.includes(letter)) {
             if (!correctLetters.includes(letter)) {
               setCorrectLetters(currentLetters => [...currentLetters, letter]);
