@@ -16,8 +16,7 @@ function App() {
     useEffect(() => {
       
       const handleFormSubmit = (event) => {
-       const letter = event.key;
-       console.log(letter);            
+       const letter = event.key;         
           if (event.keyCode >= 65 && event.keyCode <= 90) {
           if (selectedWord.includes(letter)) {
             if (!correctLetters.includes(letter)) {
