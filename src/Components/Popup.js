@@ -5,7 +5,7 @@ function Popup({correctLetters, wrongLetters, selectedWord, setPlayable}) {
     let finalMessage = '';
     let finalMessageRevealWord = '';
     if (correctLetters.length === new Set(selectedWord).size) {
-        finalMessage = "You won! Try again?";
+        finalMessage = "You won!";
         playable = false;
     } else if (wrongLetters.length === 6) {
         finalMessage = "You lost! Better luck next time!";
