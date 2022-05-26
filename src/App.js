@@ -3,6 +3,7 @@ import Header from './Components/Header'
 import Figure from './Components/Figure'
 import React, { useState, useEffect } from 'react'
 import Word from './Components/Word'
+import Popup from "./Components/Popup";
 import WrongLetters from './Components/WrongLetters';
 const wordList = ['singapore', 'tiktok', 'camp', 'youth']
 let selectedWord = wordList[Math.floor(Math.random() * wordList.length)]
@@ -16,12 +17,11 @@ function App() {
       
       const handleFormSubmit = (event) => {
        const letter = event.key;
-	   if (wrongLetters.length === selectedWord.length) {
+	   if (wrongLetters.length === 6) {
 		   setPlayable(value => [false]);
-		   alert("Game Over! Try Again.");
 	   }         
 	   if (correctLetters.length === selectedWord.length) {
-		alert("You Won!");
+      setPlayable(value => [false]);
 	   }
           if (playable && event.keyCode >= 65 && event.keyCode <= 90) {
           if (selectedWord.includes(letter)) {
@@ -49,6 +49,14 @@ function App() {
         <Figure wrongLetters={wrongLetters}/>
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+        <Popup trigger = {wrongLetters.length === 6}>
+          <h3>Game Over!</h3>
+          <p>Better luck next time</p>
+        </Popup>
+        <Popup trigger = {correctLetters.length === new Set(selectedWord).size}>
+        <h3>You Won!</h3>
+          <p>Try again?</p>
+        </Popup>
   </>
   )
 }
