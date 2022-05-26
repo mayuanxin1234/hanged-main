@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-function Popup(props) {
-  return (props.trigger) ? (
-    <div className = "popup">
-        <div className = "popup-inner">
-            <button className = "close-btn" onClick = {refreshPage}>Retry</button>
-            {props.children}
+function Popup({correctLetters, wrongLetters, selectedWord, setPlayable}) {
+    let playable = true;
+    let finalMessage = '';
+    let finalMessageRevealWord = '';
+    if (correctLetters.length === new Set(selectedWord).size) {
+        finalMessage = "You won! Try again?";
+        playable = false;
+    } else if (wrongLetters.length === 6) {
+        finalMessage = "You lost! Better luck next time!";
+        finalMessageRevealWord = `The word was: ${selectedWord}`;
+        playable = false;
+    }
+    useEffect(() => {
+        setPlayable(playable);
+      });
+        return  (
+    <div className = "popup-container" style={finalMessage !== '' ? {display:'flex'} : {}}>
+        <div className = "popup">
+            <h2>{finalMessage}</h2>
+            <h3>{finalMessageRevealWord}</h3>
+            <button onClick = {refreshPage}>Retry</button>
         </div>
             </div>
-  ) : "";
+  ) 
 }
 
 function refreshPage() {

@@ -13,16 +13,9 @@ function App() {
     const [playable, setPlayable] = useState(true)
     const [wrongLetters, setWrongLetters] = useState([])
 
-    useEffect(() => {
-      
+    useEffect(() => {      
       const handleFormSubmit = (event) => {
        const letter = event.key;
-	   if (wrongLetters.length === 6) {
-		   setPlayable(value => [false]);
-	   }         
-	   if (correctLetters.length === selectedWord.length) {
-      setPlayable(value => [false]);
-	   }
           if (playable && event.keyCode >= 65 && event.keyCode <= 90) {
           if (selectedWord.includes(letter)) {
             if (!correctLetters.includes(letter)) {
@@ -44,20 +37,13 @@ function App() {
       }, [correctLetters, wrongLetters, playable]);
     
   return (    
-    <>
+    <div className="body">
   <Header />
         <Figure wrongLetters={wrongLetters}/>
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
-        <Popup trigger = {wrongLetters.length === 6}>
-          <h3>Game Over!</h3>
-          <p>Better luck next time</p>
-        </Popup>
-        <Popup trigger = {correctLetters.length === new Set(selectedWord).size}>
-        <h3>You Won!</h3>
-          <p>Try again?</p>
-        </Popup>
-  </>
+        <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} />
+        </div> 
   )
 }
 export default App;
