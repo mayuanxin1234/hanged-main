@@ -28,7 +28,34 @@ code {
   flex-direction: column;
   text-align: right;
 }
-
+.word {
+  display: flex;
+  position: absolute;
+  left: 10px;
+}
+.popup{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background-color: rgba(0,0,0,0.2);
+  display: flex;
+ justify-content:center;
+ align-items: center;
+}
+.popup-inner{
+  position: absolute;
+  padding:32px;
+  width:100%;
+  max-width: 640px;
+  background-color: #FFF;
+}
+.popup-inner.close-btn {
+  position: absolute;
+  top:60px;
+  right:120px;
+}
 .rowC{display:flex; flex-direction:row;
   border-bottom: 3px solid #000000;
   display: inline-flex;
