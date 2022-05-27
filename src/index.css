@@ -1,4 +1,4 @@
-body {
+body, #root {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -33,29 +33,45 @@ code {
   position: absolute;
   left: 10px;
 }
-.popup{
+.popup-container {
+  background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100vh;
-  background-color: rgba(0,0,0,0.2);
-  display: flex;
- justify-content:center;
- align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* display: flex; */
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
-.popup-inner{
-  position: absolute;
-  padding:32px;
-  width:100%;
-  max-width: 640px;
-  background-color: #FFF;
+
+.popup {
+  background: #ff9a20;
+  border-radius: 5px;
+  box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
 }
-.popup-inner.close-btn {
-  position: absolute;
-  top:60px;
-  right:120px;
+
+.popup button {
+  cursor: pointer;
+  background-color: #fff;
+  color: #ff9a20;
+  border: 0;
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
 }
+
+.popup button:active {
+  transform: scale(0.98);
+}
+
+.popup button:focus {
+  outline: 0;
+}
+
 .rowC{display:flex; flex-direction:row;
   border-bottom: 3px solid #000000;
   display: inline-flex;
