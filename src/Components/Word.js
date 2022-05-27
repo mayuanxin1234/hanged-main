@@ -1,18 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const Word = ({selectedWord, correctLetters}) => {
-  return (
-      <div className = "word">
-          {selectedWord.split('').map((letter, i) => {
-              return (
-                <span className = "letter" key = {i}>
-                    {correctLetters.includes(letter) ? letter : ''}
-                </span>
-              )
-          })}  
-      </div>
-  
-  )
-}
+import "../index.css";
 
-export default Word
+const Word = props => {
+	let splitCorrect = props.selectedWord.split("");
+	const row = splitCorrect.map(inp => (
+		<div className="colC">
+			<h1>{props.correctLetters.includes(inp) ? inp : ""}</h1>
+		</div>
+	));
+	<div className="rowC">{row}</div>;
+	return <div>{row}</div>;
+};
+
+export default Word;
