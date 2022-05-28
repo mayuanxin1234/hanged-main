@@ -30,9 +30,10 @@ code {
 }
 .word {
   display: flex;
-  position: absolute;
-  left: 10px;
+  text-align: center;
 }
+
+
 .popup-container {
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -70,4 +71,17 @@ code {
 
 .popup button:focus {
   outline: 0;
+}
+.body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contain {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:3%
 }

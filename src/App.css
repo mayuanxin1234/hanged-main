@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+.myTextField {
+  display: flex;
+  text-align: center;
+}
